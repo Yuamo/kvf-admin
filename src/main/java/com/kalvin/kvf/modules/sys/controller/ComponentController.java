@@ -24,4 +24,9 @@ public class ComponentController {
     public ModelAndView ueditor() {
         return new ModelAndView("component/ueditor");
     }
+    @RequiresPermissions(value = "component:baidumap:index")
+    @GetMapping("baidumap/index")
+    public ModelAndView baidumap() {
+        return new ModelAndView("component/baidumap");
+    }
 }

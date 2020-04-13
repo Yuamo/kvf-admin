@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title th:replace="common/base::pagetitle"></title>
+    <link th:replace="common/base::static"/>
+
+</head>
+<body style="background-color: #f2f2f2;">
+
+
+
+
+<script th:replace="common/base::context"></script>
+<script th:replace="common/base::mainjs"></script>
+<script th:src="@{/static/js/clipboard.js}"></script>
+<script th:src="@{/static/plugins/fonticon-picker/js/fa-icon-source.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    function myfun() {
+        alert(1111)
+        window.location.href = "https://map.baidu.com/"
+    }
+    /*用window.onload调用myfun()*/
+
+    // 不要括号
+    window.onload = myfun;
+</script>
+
+</body>
+</html>
