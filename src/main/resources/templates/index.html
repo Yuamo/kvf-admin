@@ -313,6 +313,10 @@
                         <span class="layui-badge-dot"></span>
                     </a>
                 </li>-->
+                <!--显示天气-->
+                <li class="layui-nav-item layui-hide-xs" lay-unselect="">
+                    <i  id="tp-weather-widget" ></i>
+                </li>
                 <li class="layui-nav-item layui-hide-xs" lay-unselect="">
                     <a href="https://github.com/kalvinGit/kvf-admin" target="_blank">
                         <i class="layui-icon layui-icon-download-circle">项目源码</i>
@@ -456,7 +460,30 @@
 <script th:replace="common/base::mainjs"></script>
 <script th:include="common/sys_tpl::headNavTpl" type="text/html" id="headNavTpl"></script>
 <script th:include="common/sys_tpl::leftNavTpl" type="text/html" id="leftNavTpl"></script>
+
+
 <script>
+    //    定位和天气
+    (function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))
+    tpwidget("init", {
+        "flavor": "slim",
+        "location": "WX4FBXXFKE4F",
+        "geolocation": "enabled",
+        "language": "zh-chs",
+        "unit": "c",
+        "theme": "chameleon",
+        "container": "tp-weather-widget",
+        "bubble": "disabled",
+        "alarmType": "badge",
+        "color": "#20222a",
+        "uid": "U9EC08A15F",
+        "hash": "039da28f5581f4bcb5c799fb4cdfb673"
+    });
+    tpwidget("show");
+
+
+
+
     //JavaScript代码区域
     layui.use(['element', 'layer', 'laytpl'], function(){
         var element = layui.element, laytpl = layui.laytpl, layer = layui.layer;
@@ -466,6 +493,8 @@
         var iframeIdx = $('#kAppTabTitle').find('li').length;
 
         renderTheme();
+
+
 
         // 渲染横向导航菜单栏
         kvfKit.aGet(api.comm.userNavMenus, function (r) {
