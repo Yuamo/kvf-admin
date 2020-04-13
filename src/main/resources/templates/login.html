@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title th:replace="common/base::pagetitle"></title>
     <link th:replace="common/base::static"/>
+
     <style>
         .title {
             font-size: 40px;
@@ -17,11 +18,18 @@
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
         }
+        .bg{
+            background-image: url(/static/image/bg3.jpg);
+            background-color: #afb6c5;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment:fixed;
+        }
 
     </style>
 </head>
-<body style="background-color: #afb6c5">
-<div class="kvf-user-login" id="kUserLoginBox">
+<body class="bg">
+<div class="kvf-user-login" id="kUserLoginBox" >
 
     <div class="kvf-user-login-main">
         <div class="kvf-user-login-box kvf-user-login-header">
@@ -68,7 +76,7 @@
     </div>
 
     <div class="layui-trans kvf-user-login-footer">
-        <p>© 2019 <a href="https://tools.kalvinbg.cn" target="_blank">kvf.com</a></p>
+        <p>Copyright ©  2020  Yumao  <a href="http://beian.miit.gov.cn" target="_blank">     陕ICP备19019590号 </a></p>
     </div>
 
 </div>
@@ -76,8 +84,10 @@
 <script th:replace="common/base::context"></script>
 <script th:replace="common/base::mainjs"></script>
 <script>
+
     layui.use('form', function () {
         var form = layui.form;
+
 
         //提交
         form.on('submit(kUserLoginSubmit)', function(obj) {
